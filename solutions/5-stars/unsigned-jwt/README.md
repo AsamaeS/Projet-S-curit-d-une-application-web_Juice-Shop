@@ -1,11 +1,19 @@
-## Unsigned JWT
-### Challenge: Forge an essentially unsigned JWT token that impersonates the (non-existing) user jwtn3d@juice-sh.op.
+# Unsigned JWT
+**Difficulté**: ⭐⭐⭐⭐⭐
+**Catégorie**: Cryptographic Failures
 
-1. Log in as any user.
-2. Copy the JWT token from the Authorization header.
-3. Decode the JWT token.
-4. Under the `payload` property, change the `email` attribute in the JSON to `jwtn3d@juice-sh.op`.
-5. Under the `header` property, change the value of the `alg` property from `RS256` to `none`.
-6. Encode the JWT token.
-7. Change the Authorization header of a subsequent request to the new JWT token.
-8. Submit the request to solve this challenge.
+## Description
+Forger un token JWT non signé pour usurper l'identité de l'utilisateur jwtn3d@juice-sh.op.
+
+## Exploitation manuelle
+1. Connectez-vous avec n'importe quel compte utilisateur
+2. Récupérez le token JWT depuis l'entête `Authorization`
+3. Décodez le token (vous pouvez utiliser https://jwt.io/)
+4. Dans la partie `payload`, changez l'email par `jwtn3d@juice-sh.op`
+5. Dans la partie `header`, changez la valeur de `alg` (algorithme) de `RS256` à `none`
+6. Réencodez le token JWT
+7. Modifiez l'entête `Authorization` d'une requête ultérieure avec ce nouveau token
+8. Envoyez la requête pour résoudre le challenge
+
+## Captures d'écran
+![Unsigned JWT](../../../screenshots/100unsigned%20jwt.png)
