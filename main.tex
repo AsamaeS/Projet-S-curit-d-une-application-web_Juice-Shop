@@ -1,0 +1,55 @@
+% Rapport d'Audit de Sécurité - OWASP Juice Shop
+% Document principal LaTeX
+% Version: 1.0
+% Date: \today
+
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% Inclusion des fichiers de configuration
+\input{config/packages}
+\input{config/style}
+\input{config/commands}
+\input{config/environments}
+
+% Métadonnées du document
+\title{Rapport d'Audit de Sécurité \\ OWASP Juice Shop}
+\author{Auditeur de Sécurité}
+\date{\today}
+
+\begin{document}
+
+% Page de titre
+\input{sections/00_titlepage}
+
+% Pages préliminaires
+\frontmatter
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Corps du document
+\mainmatter
+
+% Sections principales
+\input{sections/01_introduction}
+\input{sections/02_presentation}
+\input{sections/03_vulnerabilities}
+\input{sections/04_demonstrations}
+\input{sections/05_recommandations}
+\input{sections/06_methodologie}
+\input{sections/07_conclusion}
+
+% Annexes
+\appendix
+\input{sections/A1_appendix_images}
+\input{sections/A2_appendix_tools}
+\input{sections/A3_appendix_references}
+
+% Bibliographie
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

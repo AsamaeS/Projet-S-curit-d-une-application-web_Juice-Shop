@@ -1,0 +1,54 @@
+% Section 5: Recommandations générales
+% Fichier: sections/05_recommandations.tex
+
+\chapter{Recommandations générales}
+
+\section{Contre-mesures correctives}
+
+\subsection{Injections}
+\begin{itemize}
+    \item Utiliser systématiquement des requêtes paramétrées
+    \item Éviter la concaténation de chaînes pour construire des requêtes SQL
+    \item Valider et nettoyer toutes les entrées utilisateur
+\end{itemize}
+
+\subsection{XSS}
+\begin{itemize}
+    \item Échapper les données utilisateur selon le contexte (HTML, JavaScript, CSS, URL)
+    \item Implémenter une Content Security Policy (CSP) stricte
+    \item Utiliser des frameworks qui échappent automatiquement les données (Angular, React)
+\end{itemize}
+
+\subsection{Authentification}
+\begin{itemize}
+    \item Implémenter un verrouillage de compte après plusieurs tentatives échouées
+    \item Utiliser l'authentification à deux facteurs (2FA)
+    \item Stocker les mots de passe avec un algorithme de hachage fort (bcrypt, Argon2)
+\end{itemize}
+
+\subsection{Contrôle d'accès}
+\begin{itemize}
+    \item Vérifier les autorisations pour chaque requête
+    \item Utiliser des UUID au lieu d'identifiants séquentiels
+    \item Implémenter le principe du moindre privilège
+\end{itemize}
+
+\subsection{Configuration}
+\begin{itemize}
+    \item Désactiver les messages d'erreur détaillés en production
+    \item Supprimer les fonctionnalités de débogage
+    \item Mettre à jour régulièrement les dépendances
+\end{itemize}
+
+\section{Recommandations prioritaires}
+\begin{priorityrecommendation}{Critique}
+    Corriger immédiatement toutes les vulnérabilités permettant un accès non autorisé ou une exécution de code à distance.
+\end{priorityrecommendation}
+
+\begin{priorityrecommendation}{Élevée}
+    Mettre en place une politique de sécurité des contenus (CSP) et valider toutes les entrées utilisateur.
+\end{priorityrecommendation}
+
+\begin{priorityrecommendation}{Moyenne}
+    Implémenter un mécanisme de verrouillage de compte et utiliser des hachages forts pour les mots de passe.
+\end{priorityrecommendation}

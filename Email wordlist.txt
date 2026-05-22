@@ -1,0 +1,17 @@
+admin@juice-sh.op
+admin@juice-shop.com
+administrator@juice-sh.op
+root@juice-sh.op
+test@test.com
+user@juice-sh.op
+guest@juice-sh.op
+support@juice-sh.op
+info@juice-sh.op
+contact@juice-sh.op
+demo@juice-sh.op
+account@juice-sh.op
+security@juice-sh.op
+admin@gmail.com
+admin@yahoo.com
+user@gmail.com
+test@gmail.com

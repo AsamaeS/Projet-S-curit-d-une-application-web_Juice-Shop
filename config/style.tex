@@ -1,0 +1,371 @@
+% Configuration du style LaTeX
+% Fichier: config/style.tex
+
+% ============================================================================
+% STYLES PERSONNALISÉS POUR LE RAPPORT DE SÉCURITÉ
+% ============================================================================
+
+% ----------------------------------------------------------------------------
+% CONFIGURATION DES POLICES
+% ----------------------------------------------------------------------------
+
+% Police principale
+\renewcommand{\familydefault}{\sfdefault}
+
+% Tailles de police personnalisées
+\newcommand{\titlestyle}{\fontsize{24}{28}\selectfont\bfseries}
+\newcommand{\sectionstyle}{\fontsize{16}{20}\selectfont\bfseries}
+\newcommand{\subsectionstyle}{\fontsize{14}{18}\selectfont\bfseries}
+\newcommand{\subsubsectionstyle}{\fontsize{12}{16}\selectfont\bfseries}
+\newcommand{\bodystyle}{\fontsize{11}{13}\selectfont}
+\newcommand{\footnotestyle}{\fontsize{9}{11}\selectfont}
+
+% Application des styles de police
+\AtBeginDocument{
+    \bodystyle
+}
+
+% ----------------------------------------------------------------------------
+% CONFIGURATION DES COULEURS THÉMATIQUES
+% ----------------------------------------------------------------------------
+
+% Palette de couleurs pour la sécurité
+\definecolor{primarycolor}{RGB}{0, 123, 255}      % Bleu principal
+\definecolor{secondarycolor}{RGB}{108, 117, 125}  % Gris secondaire
+\definecolor{successcolor}{RGB}{40, 167, 69}      % Vert succès
+\definecolor{dangercolor}{RGB}{220, 53, 69}       % Rouge danger
+\definecolor{warningcolor}{RGB}{255, 193, 7}      % Jaune avertissement
+\definecolor{infocolor}{RGB}{23, 162, 184}        % Cyan info
+\definecolor{lightcolor}{RGB}{248, 249, 250}      % Gris clair
+\definecolor{darkcolor}{RGB}{52, 58, 64}          % Gris foncé
+
+% Couleurs pour les niveaux de sévérité
+\definecolor{severitycritical}{RGB}{220, 53, 69}   % Rouge critique
+\definecolor{severityhigh}{RGB}{253, 126, 20}      % Orange élevé
+\definecolor{severitymedium}{RGB}{255, 193, 7}     % Jaune moyen
+\definecolor{severitylow}{RGB}{40, 167, 69}        % Vert bas
+\definecolor{severityinfo}{RGB}{23, 162, 184}      % Cyan information
+
+% Couleurs pour les catégories OWASP
+\definecolor{owaspa01}{RGB}{220, 53, 69}    % A01: Broken Access Control
+\definecolor{owaspa02}{RGB}{253, 126, 20}   % A02: Cryptographic Failures
+\definecolor{owaspa03}{RGB}{255, 193, 7}    % A03: Injection
+\definecolor{owaspa04}{RGB}{40, 167, 69}    % A04: Insecure Design
+\definecolor{owaspa05}{RGB}{23, 162, 184}   % A05: Security Misconfiguration
+\definecolor{owaspa06}{RGB}{111, 66, 193}   % A06: Vulnerable Components
+\definecolor{owaspa07}{RGB}{220, 53, 150}   % A07: Auth Failures
+\definecolor{owaspa08}{RGB}{253, 126, 100}  % A08: Integrity Failures
+\definecolor{owaspa09}{RGB}{255, 193, 50}   % A09: Logging Failures
+\definecolor{owaspa10}{RGB}{40, 167, 120}   % A10: SSRF
+
+% ----------------------------------------------------------------------------
+% CONFIGURATION DES MARGES ET ESPACEMENTS
+% ----------------------------------------------------------------------------
+
+% Marges personnalisées
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{16cm}
+\setlength{\headheight}{15pt}
+\setlength{\headsep}{25pt}
+\setlength{\footskip}{30pt}
+
+% Espacement des listes
+\setlist[itemize]{topsep=4pt, partopsep=0pt, parsep=2pt, itemsep=2pt, leftmargin=*}
+\setlist[enumerate]{topsep=4pt, partopsep=0pt, parsep=2pt, itemsep=2pt, leftmargin=*}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LES ÉLÉMENTS DE SÉCURITÉ
+% ----------------------------------------------------------------------------
+
+% Style pour les alertes de sécurité
+\newcommand{\securityalert}[2]{%
+    \begin{tcolorbox}[
+        colback=#1!5!white,
+        colframe=#1!75!black,
+        title=\textbf{Alerte de Sécurité},
+        fonttitle=\bfseries,
+        arc=0mm,
+        boxrule=0.5pt,
+        breakable
+    ]
+    #2
+    \end{tcolorbox}
+}
+
+% Style pour les notes importantes
+\newcommand{\importantnote}[1]{%
+    \begin{tcolorbox}[
+        colback=warningcolor!10!white,
+        colframe=warningcolor!75!black,
+        title=\textbf{Note Importante},
+        fonttitle=\bfseries\small,
+        before skip=10pt,
+        after skip=10pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% Style pour les conseils pratiques
+\newcommand{\practicetip}[1]{%
+    \begin{tcolorbox}[
+        colback=successcolor!10!white,
+        colframe=successcolor!75!black,
+        title=\textbf{Conseil Pratique},
+        fonttitle=\bfseries\small,
+        before skip=8pt,
+        after skip=8pt
+    ]
+    #1
+    \end{tcolorbox}
+}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LES VULNÉRABILITÉS
+% ----------------------------------------------------------------------------
+
+% Style pour les niveaux de difficulté
+\newcommand{\difficultystar}[1]{%
+    \textcolor{warningcolor}{\textbf{#1}}
+}
+
+% Style pour les catégories OWASP
+\newcommand{\owaspcategory}[1]{%
+    \ifstrequal{#1}{A01}{\textcolor{owaspa01}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A02}{\textcolor{owaspa02}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A03}{\textcolor{owaspa03}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A04}{\textcolor{owaspa04}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A05}{\textcolor{owaspa05}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A06}{\textcolor{owaspa06}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A07}{\textcolor{owaspa07}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A08}{\textcolor{owaspa08}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A09}{\textcolor{owaspa09}{\textbf{#1}}}{%
+    \ifstrequal{#1}{A10}{\textcolor{owaspa10}{\textbf{#1}}}{%
+    \textbf{#1}}}}}}}}}}}
+}
+
+% Style pour les niveaux de sévérité
+\newcommand{\severitylevel}[1]{%
+    \ifstrequal{#1}{Critique}{\textcolor{severitycritical}{\textbf{#1}}}{%
+    \ifstrequal{#1}{Élevée}{\textcolor{severityhigh}{\textbf{#1}}}{%
+    \ifstrequal{#1}{Moyenne}{\textcolor{severitymedium}{\textbf{#1}}}{%
+    \ifstrequal{#1}{Basse}{\textcolor{severitylow}{\textbf{#1}}}{%
+    \ifstrequal{#1}{Information}{\textcolor{severityinfo}{\textbf{#1}}}{%
+    \textbf{#1}}}}}}
+}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LES TABLEAUX
+% ----------------------------------------------------------------------------
+
+% Style pour les tableaux de vulnérabilités
+\newenvironment{vulnerabilitytable}{%
+    \begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X c c c c}
+    \toprule
+    \textbf{Vulnérabilité} & \textbf{Catégorie} & \textbf{Difficulté} & \textbf{Sévérité} & \textbf{Page} \\
+    \midrule
+}{%
+    \bottomrule
+    \end{tabularx}
+    \end{table}
+}
+
+% Style pour les tableaux de recommandations
+\newenvironment{recommendationtable}{%
+    \begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X c >{\raggedright\arraybackslash}X}
+    \toprule
+    \textbf{Recommandation} & \textbf{Priorité} & \textbf{Description} \\
+    \midrule
+}{%
+    \bottomrule
+    \end{tabularx}
+    \end{table}
+}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LES FIGURES
+% ----------------------------------------------------------------------------
+
+% Style pour les figures de démonstration
+\newcommand{\demoimage}[3]{%
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{#1}
+    \caption{#2}
+    \label{fig:#3}
+    \end{figure}
+}
+
+% Style pour les figures avec annotations
+\newcommand{\annotatedimage}[4]{%
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=#1]{#2}};
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]
+            #4
+        \end{scope}
+    \end{tikzpicture}
+    \caption{#3}
+    \end{figure}
+}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LES EN-TÊTES ET PIEDS DE PAGE
+% ----------------------------------------------------------------------------
+
+% En-tête personnalisé pour les chapitres
+\fancypagestyle{chapterstyle}{%
+    \fancyhf{}
+    \fancyhead[L]{\textcolor{primarycolor}{\nouppercase{\leftmark}}}
+    \fancyhead[R]{\textcolor{secondarycolor}{\thepage}}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% Pied de page pour les annexes
+\fancypagestyle{appendixstyle}{%
+    \fancyhf{}
+    \fancyhead[L]{\textcolor{secondarycolor}{Annexe \thechapter}}
+    \fancyhead[R]{\textcolor{secondarycolor}{\thepage}}
+    \fancyfoot[C]{\textcolor{secondarycolor}{\small Document confidentiel - Distribution limitée}}
+    \renewcommand{\headrulewidth}{0.2pt}
+    \renewcommand{\footrulewidth}{0.2pt}
+}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LES SECTIONS SPÉCIALES
+% ----------------------------------------------------------------------------
+
+% Style pour les sections de méthodologie
+\newenvironment{methodologysection}{%
+    \sectionstyle
+    \color{infocolor}
+    \begin{tcolorbox}[
+        colback=infocolor!5!white,
+        colframe=infocolor!75!black,
+        before skip=15pt,
+        after skip=15pt,
+        breakable
+    ]
+}{%
+    \end{tcolorbox}
+}
+
+% Style pour les sections de recommandations
+\newenvironment{recommendationsection}{%
+    \sectionstyle
+    \color{successcolor}
+    \begin{tcolorbox}[
+        colback=successcolor!5!white,
+        colframe=successcolor!75!black,
+        before skip=15pt,
+        after skip=15pt,
+        breakable
+    ]
+}{%
+    \end{tcolorbox}
+}
+
+% Style pour les sections de vulnérabilités
+\newenvironment{vulnerabilitysection}{%
+    \sectionstyle
+    \color{dangercolor}
+    \begin{tcolorbox}[
+        colback=dangercolor!5!white,
+        colframe=dangercolor!75!black,
+        before skip=15pt,
+        after skip=15pt,
+        breakable
+    ]
+}{%
+    \end{tcolorbox}
+}
+
+% ----------------------------------------------------------------------------
+% CONFIGURATION DES HYPERRÉFÉRENCES
+% ----------------------------------------------------------------------------
+
+% Style pour les liens internes
+\newcommand{\internallink}[2]{%
+    \hyperref[#1]{\textcolor{primarycolor}{#2}}
+}
+
+% Style pour les liens externes
+\newcommand{\externallink}[2]{%
+    \href{#1}{\textcolor{infocolor}{#2}}
+}
+
+% Style pour les références aux figures
+\newcommand{\figureref}[1]{%
+    \hyperref[fig:#1]{Figure~\ref*{fig:#1}}
+}
+
+% Style pour les références aux tableaux
+\newcommand{\tableref}[1]{%
+    \hyperref[tab:#1]{Tableau~\ref*{tab:#1}}
+}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LA PAGE DE TITRE
+% ----------------------------------------------------------------------------
+
+% Commande pour le titre principal
+\newcommand{\maintitle}[1]{%
+    {\titlestyle\color{primarycolor}#1}
+}
+
+% Commande pour le sous-titre
+\newcommand{\subtitle}[1]{%
+    {\sectionstyle\color{secondarycolor}#1}
+}
+
+% Commande pour les informations de projet
+\newcommand{\projectinfo}[2]{%
+    \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+        \textbf{#1:} & #2 \\
+    \end{tabular}
+}
+
+% ----------------------------------------------------------------------------
+% STYLES POUR LES ÉLÉMENTS INTERACTIFS
+% ----------------------------------------------------------------------------
+
+% Style pour les boutons (simulés)
+\newcommand{\securitybutton}[2]{%
+    \tikz[baseline=(char.base)]{
+        \node[shape=rectangle, rounded corners=3pt, draw=primarycolor, fill=primarycolor!10, 
+              inner sep=4pt, minimum height=20pt] (char) {\textcolor{primarycolor}{\textbf{#1}}};
+    }
+    \quad #2
+}
+
+% Style pour les indicateurs d'état
+\newcommand{\statusindicator}[2]{%
+    \tikz[baseline=(char.base)]{
+        \node[shape=circle, draw=#1, fill=#1!20, inner sep=2pt] (char) {};
+    }
+    \quad #2
+}
+
+% ----------------------------------------------------------------------------
+% CONFIGURATION FINALE
+% ----------------------------------------------------------------------------
+
+% Application des styles de page
+\AtBeginDocument{
+    \pagestyle{fancy}
+}
+
+% Configuration des sauts de page
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=10000
+
+% Fin du fichier style.tex
