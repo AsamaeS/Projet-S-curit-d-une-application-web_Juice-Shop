@@ -1,17 +1,7 @@
-# DOM XSS
-**Difficulté**: ⭐
-**Catégorie**: Injection (XSS)
+## DOM-XSS 
+### Challenge: Perform a DOM XSS attack with \<iframe src="javascript:alert('xss')"\>.
 
-## Description
-Réaliser une attaque DOM XSS avec un payload iframe.
-
-## Exploitation manuelle
-1. Cliquer sur l'icône de recherche
-2. Saisir le payload dans la barre de recherche:
-   ```html
-   <iframe src="javascript:alert('xss')">
-   ```
-3. Appuyer sur Entrée
-
-## Exploitation automatisée
-Voir le fichier `solution.py`.
+1. Click search icon
+2. Input malicious iframe into search box
+3. Press Enter
+4. Observe alert box with 'xss' text

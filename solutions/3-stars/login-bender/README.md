@@ -1,18 +1,5 @@
-# Login Bender
-**Difficulté**: ⭐⭐⭐
-**Catégorie**: Injection (SQLi)
+## Login Bender
+### Challenge: Log in with Bender's user account.
 
-## Description
-Se connecter avec le compte de Bender.
-
-## Exploitation manuelle
-1. Aller à la page de connexion
-2. Saisir dans le champ email:
-   ```
-   bender@juice-sh.op' --
-   ```
-3. Saisir n'importe quel mot de passe
-4. Cliquer sur "Log in"
-
-## Exploitation automatisée
-Voir le fichier `solution.py`.
+1. Navigate to account login
+2. Log in with Email `bender@juice-sh.op' --` and any Password

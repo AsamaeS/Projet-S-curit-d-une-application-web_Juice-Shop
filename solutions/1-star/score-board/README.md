@@ -1,14 +1,7 @@
-# Score Board
-**Difficulté**: ⭐
-**Catégorie**: Security Misconfiguration
+## Score Board 
+### Challenge: Find the carefully hidden 'Score Board' page.
 
-## Description
-Trouver la page Score Board soigneusement cachée.
-
-## Exploitation manuelle
-1. Clic droit sur la page d'accueil > Inspecter > Sources
-2. Rechercher `path` ou `score` dans `main.js`
-3. Accéder à l'URL: `http://[ip]:3000/#/score-board`
-
-## Exploitation automatisée
-Voir le fichier `solution.py`.
+1. Right Click on home page > Inspect > Sources
+2. Look at `main.js`
+3. Search for `path` or `score` and you would observe that there is a directory path named `score-board`
+4. navigate to the url `http://ipaddress:3000/#/score-board` to complete this challenge

