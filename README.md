@@ -1,5 +1,5 @@
 # OWASP Juice Shop - Audit de Sécurité
-Audit de sécurité complet de l'application OWASP Juice Shop, avec rapport PDF, rapport LaTeX, solutions automatisées et captures d'écran.
+Audit de sécurité complet de l'application OWASP Juice Shop, avec rapport PDF, solutions automatisées et captures d'écran.
 
 ## Rapport PDF
 Le rapport d'audit final est disponible dans le fichier :
@@ -11,7 +11,6 @@ Le rapport d'audit final est disponible dans le fichier :
 - VirtualBox
 - Vagrant
 - Python 3.x
-- Une distribution LaTeX (MiKTeX ou TeX Live)
 
 ### Déploiement avec Vagrant
 1. Clonez ce dépôt
@@ -119,25 +118,12 @@ Chaque challenge possède un script Python d'automatisation. Pour l'exécuter :
 2. Allez dans le répertoire du challenge
 3. Exécutez `python3 solution.py`
 
-## Compilation du rapport LaTeX
-
-Pour compiler le rapport :
-```bash
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
-```
-
-Ou utilisez Overleaf pour une compilation simplifiée.
-
 ## Structure du dépôt
 ```
 .
 ├── README.md
 ├── Vagrantfile
-├── main.tex
-├── references.bib
+├── Projet juice shop _SERJI_Kssiri.pdf
 ├── solutions/
 │   ├── 1-star/
 │   │   ├── score-board/
@@ -149,8 +135,6 @@ Ou utilisez Overleaf pour une compilation simplifiée.
 │   ├── 4-stars/
 │   ├── 5-stars/
 │   └── 6-stars/
-└── screenshots/
-    ├── score_board.png
-    ├── login_admin_sqli.png
-    └── ...
+└── images/
+    ├── (toutes les captures d'écran)
 ```
