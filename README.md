@@ -1,5 +1,9 @@
 # OWASP Juice Shop - Audit de Sécurité
-Audit de sécurité complet de l'application OWASP Juice Shop, avec rapport LaTeX, solutions automatisées et captures d'écran.
+Audit de sécurité complet de l'application OWASP Juice Shop, avec rapport PDF, rapport LaTeX, solutions automatisées et captures d'écran.
+
+## Rapport PDF
+Le rapport d'audit final est disponible dans le fichier :
+- `Projet juice shop _SERJI_Kssiri.pdf`
 
 ## Installation & Configuration
 
