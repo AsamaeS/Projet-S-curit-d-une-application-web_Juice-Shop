@@ -135,6 +135,6 @@ Chaque challenge possède un script Python d'automatisation. Pour l'exécuter :
 │   ├── 4-stars/
 │   ├── 5-stars/
 │   └── 6-stars/
-└── images/
+└── screenshots/
     ├── (toutes les captures d'écran)
 ```
